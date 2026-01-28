@@ -15,7 +15,7 @@ export default function Login() {
     setIsLoading(true);
 
     try {
-      const res = await axios.post("https://login-backned-n20k.onrender.com", {
+      const res = await axios.post("https://login-backned-n20k.onrender.com/api/auth/login", {
         empId,
         password
       });
