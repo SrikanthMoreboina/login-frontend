@@ -16,7 +16,7 @@ export default function Home() {
 
   const location = useLocation();
   const password = location.state?.password || "";
-  const assessmentUrl = `https://s.pointerpro.com/rfkxcnjf?rid=UID_${password} || ""}`;
+  const assessmentUrl = `https://s.pointerpro.com/rfkxcnjf?rid=UID_${password}`;
 
   const handleStartAssessment = () => {
     setShowAssessment(true);
