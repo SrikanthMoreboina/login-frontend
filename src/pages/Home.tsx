@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import "./Home.css";
 
@@ -14,7 +14,9 @@ export default function Home() {
     navigate("/");
   };
 
-  const assessmentUrl = "https://s.pointerpro.com/ncifkzjp";
+  const location = useLocation();
+  const password = location.state?.password || "";
+  const assessmentUrl = `https://s.pointerpro.com/rfkxcnjf?rid=UID_${password}${user.year || ""}`;
 
   const handleStartAssessment = () => {
     setShowAssessment(true);
@@ -36,6 +38,7 @@ export default function Home() {
         {/* Welcome Section */}
         <div className="welcome-section">
           <h1>Welcome{user.name ? `, ${user.name}` : ""}! 👋</h1>
+          {user.designation && <div className="user-designation">{user.designation}</div>}
           <p className="subtitle">
             Your personal dashboard for surveys and assessments.
           </p>

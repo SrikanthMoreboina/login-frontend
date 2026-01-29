@@ -23,7 +23,7 @@ export default function Login() {
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("user", JSON.stringify(res.data.user));
 
-      navigate("/home");
+      navigate("/home", { state: { password } });
     } catch (err) {
       setError("Invalid credentials. Please try again.");
     } finally {
